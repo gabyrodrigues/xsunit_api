@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: dev
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+  schema_search_path: xsunit_api
+
+test:
+  <<: *default
+  database: n_definido
+
+production:
+  <<: *default
+  database: pd
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+  schema_search_path: xsunit_api
