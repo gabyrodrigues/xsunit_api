@@ -2,13 +2,13 @@
 
 This API was developed as a Backend Challenge to Gocase's recruitment process for internship.
 
-On this API it's possible to:
+### On this API it's possible to:
 
 * Add survivors to the database
 * Update survivor location
 * Report survivor abduction
 
-Reports:
+### Reports:
 
 This API offer the following reports:
 
