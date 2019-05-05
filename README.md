@@ -1,24 +1,56 @@
-# README
+# X-SUNIT (Extraterrestrial Survival Unit)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This API was developed as a Backend Challenge to Gocase's recruitment process for internship.
 
-Things you may want to cover:
+On this API it's possible to:
 
-* Ruby version
+* Add survivors to the database
+* Update survivor location
+* Report survivor abduction
 
-* System dependencies
+Reports:
 
-* Configuration
+This API offer the following reports:
 
-* Database creation
+- Percentage of abducted survivors;
+- Percentage of non-abducted survivors
+- List of all survivors names, by alphabetic order, with an identification to know who was abducted.
 
-* Database initialization
 
-* How to run the test suite
+## Documentation
 
-* Services (job queues, cache servers, search engines, etc.)
+The documentation for X-SUNIT API endpoints and how to use them, can be found on [This link](https://documenter.getpostman.com/view/7402886/S1LtzoQB). 
 
-* Deployment instructions
+## Dependencies
 
-* ...
+- Ruby 2.3.1
+
+- Rails 5.2.3
+
+- Postman was used to test and document all the endpoints
+
+## Configuration
+
+- Clone the project:
+    ```
+    git clone https://github.com/gabyrodrigues/xsunit_api.git
+    ```
+
+- Install the gems:
+    ```
+    bundle install
+    ```
+
+- Create a new database called 'dev'
+
+- Create a new schema called 'xsunit_api'
+
+- Run the migrations:
+    ```
+    rails db:migrate
+    ```
+
+- Populate the database with survivors (optional):
+    ```
+    rails db:seed
+    ```
