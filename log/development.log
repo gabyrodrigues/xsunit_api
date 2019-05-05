@@ -474,3 +474,2094 @@ Unpermitted parameters: :id, :survivor
 Completed 200 OK in 103ms (Views: 7.4ms | ActiveRecord: 45.4ms)
 
 
+Started GET "/" for ::1 at 2019-05-04 19:35:03 -0300
+  [1m[35m (47.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/gabriely/.rvm/gems/ruby-2.3.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/gabriely/.rvm/gems/ruby-2.3.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (18.3ms)
+Completed 200 OK in 87ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-05-04 19:35:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/survivors/?=" for ::1 at 2019-05-04 19:44:08 -0300
+Processing by Api::V1::SurvivorsController#create as */*
+  Parameters: {"name"=>"Hanna", "gender"=>"female", "latitude"=>"40.0677174866262", "longitude"=>"-111.602125919385", "abducted"=>"true", "survivor"=>{"name"=>"Hanna", "gender"=>"female", "latitude"=>"40.0677174866262", "longitude"=>"-111.602125919385", "abducted"=>"true"}}
+Unpermitted parameters: :abducted, :survivor
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+  [1m[36mSurvivor Create (186.5ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "gender", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hanna"], ["gender", "female"], ["latitude", "40.0677174866262"], ["longitude", "-111.602125919385"], ["created_at", "2019-05-04 22:44:08.572377"], ["updated_at", "2019-05-04 22:44:08.572377"]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+  [1m[35m (47.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+Completed 201 Created in 318ms (Views: 1.4ms | ActiveRecord: 274.5ms)
+
+
+Started GET "/api/v1/survivors/?=" for ::1 at 2019-05-04 19:44:15 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"name"=>"Hanna", "gender"=>"female", "latitude"=>"40.0677174866262", "longitude"=>"-111.602125919385", "abducted"=>"true", "survivor"=>{"name"=>"Hanna", "gender"=>"female", "latitude"=>"40.0677174866262", "longitude"=>"-111.602125919385", "abducted"=>"true"}}
+  [1m[36mSurvivor Load (4.2ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 38ms (Views: 32.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/v1/abductions/" for ::1 at 2019-05-04 21:27:44 -0300
+Processing by Api::V1::AbductionsController#index as */*
+  Parameters: {"name"=>"Hanna", "gender"=>"female", "latitude"=>"40.0677174866262", "longitude"=>"-111.602125919385", "abducted"=>"true", "abduction"=>{"abducted"=>"true"}}
+  [1m[36mAbduction Load (22.6ms)[0m  [1m[34mSELECT "abductions".* FROM "abductions" ORDER BY "abductions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:6
+Completed 200 OK in 29ms (Views: 4.9ms | ActiveRecord: 33.7ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:28:30 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (17.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+Completed 500 Internal Server Error in 391ms (ActiveRecord: 32.4ms)
+
+
+  
+NoMethodError (undefined method `abduted' for #<Abduction:0x0056206805f8a0>
+Did you mean?  abducted
+               abducted?
+               abducted=):
+  
+app/controllers/api/v1/abductions_controller.rb:20:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:30:43 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 31.9ms)
+
+
+  
+NoMethodError (undefined method `abduted' for #<Abduction:0x007f56ec8df910>
+Did you mean?  abducted
+               abducted?
+               abducted=):
+  
+app/controllers/api/v1/abductions_controller.rb:20:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:32:09 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.8ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (66.2ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:32:09.357820"], ["updated_at", "2019-05-05 00:32:09.357820"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (28.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+Completed 201 Created in 177ms (Views: 1.1ms | ActiveRecord: 115.0ms)
+
+
+  [1m[36mAbduction Load (2.7ms)[0m  [1m[34mSELECT  "abductions".* FROM "abductions" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSurvivor Load (1.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 11]]
+  [1m[36mSurvivor Load (1.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."name" = $1 LIMIT $2[0m  [["name", "Hanna"], ["LIMIT", 11]]
+  [1m[36mAbduction Load (1.2ms)[0m  [1m[34mSELECT  "abductions".* FROM "abductions" WHERE "abductions"."abducted" = $1 LIMIT $2[0m  [["abducted", true], ["LIMIT", 11]]
+  [1m[36mAbduction Load (0.8ms)[0m  [1m[34mSELECT  "abductions".* FROM "abductions" WHERE "abductions"."survivor_id" = $1 LIMIT $2[0m  [["survivor_id", 10], ["LIMIT", 11]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 10]]
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:47:27 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "abduction"=>{"survivor_id"=>9, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (2.1ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 9], ["abducted", true], ["created_at", "2019-05-05 00:47:27.925139"], ["updated_at", "2019-05-05 00:47:27.925139"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (53.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:24
+Completed 201 Created in 147ms (Views: 1.0ms | ActiveRecord: 84.0ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:47:51 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (3.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.4ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:47:51.051332"], ["updated_at", "2019-05-05 00:47:51.051332"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (45.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:24
+Completed 201 Created in 65ms (Views: 0.8ms | ActiveRecord: 53.2ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:48:10 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (3.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (4.2ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:48:10.944896"], ["updated_at", "2019-05-05 00:48:10.944896"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:24
+Completed 201 Created in 47ms (Views: 0.9ms | ActiveRecord: 34.3ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:48:58 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (6.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.4ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:48:58.692432"], ["updated_at", "2019-05-05 00:48:58.692432"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:24
+Completed 201 Created in 48ms (Views: 1.1ms | ActiveRecord: 30.4ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:49:45 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.8ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.2ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:49:45.885490"], ["updated_at", "2019-05-05 00:49:45.885490"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 11]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:24
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 46.3ms)
+
+
+  
+RuntimeError (#<ActiveRecord::Relation [#<Survivor id: 10, name: "Michel Gulgowski", gender: "male", latitude: #<BigDecimal:7f56e40bc4c0,'0.4006771748 66262E2',27(27)>, longitude: #<BigDecimal:7f56e40bc3d0,'-0.1116021259 19385E3',27(27)>, abducted: false, created_at: "2019-05-02 18:03:07", updated_at: "2019-05-02 18:03:07">]>):
+  
+app/controllers/api/v1/abductions_controller.rb:24:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:50:58 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "abduction"=>{"survivor_id"=>9, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.4ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 9], ["abducted", true], ["created_at", "2019-05-05 00:50:58.685006"], ["updated_at", "2019-05-05 00:50:58.685006"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:22
+Completed 404 Not Found in 117ms (ActiveRecord: 44.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Survivor with 'id'={:id=>9}):
+  
+app/controllers/api/v1/abductions_controller.rb:22:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:51:09 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>2, "abducted"=>true, "abduction"=>{"survivor_id"=>2, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (2.5ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 2], ["abducted", true], ["created_at", "2019-05-05 00:51:09.841449"], ["updated_at", "2019-05-05 00:51:09.841449"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:22
+Completed 404 Not Found in 47ms (ActiveRecord: 28.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Survivor with 'id'={:id=>2}):
+  
+app/controllers/api/v1/abductions_controller.rb:22:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:51:57 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (3.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.9ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:51:57.316061"], ["updated_at", "2019-05-05 00:51:57.316061"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:22
+Completed 404 Not Found in 74ms (ActiveRecord: 49.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Survivor with 'id'={:id=>10}):
+  
+app/controllers/api/v1/abductions_controller.rb:22:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:53:43 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.4ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 00:53:43.428525"], ["updated_at", "2019-05-05 00:53:43.428525"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:22
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 46.7ms)
+
+
+  
+NoMethodError (undefined method `count' for #<Survivor:0x0056206a114ca8>):
+  
+app/controllers/api/v1/abductions_controller.rb:24:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:54:24 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "abduction"=>{"survivor_id"=>9, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (6.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.1ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 9], ["abducted", true], ["created_at", "2019-05-05 00:54:24.677266"], ["updated_at", "2019-05-05 00:54:24.677266"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (56.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.8ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:22
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 87.3ms)
+
+
+  
+RuntimeError (#<Survivor id: 9, name: "Anne", gender: "female", latitude: #<BigDecimal:7f56ec9e3e60,'0.4006771748 66262E2',27(27)>, longitude: #<BigDecimal:7f56ec9e3cd0,'-0.1116021259 19385E3',27(27)>, abducted: false, created_at: "2019-05-02 18:03:07", updated_at: "2019-05-02 19:13:55">):
+  
+app/controllers/api/v1/abductions_controller.rb:24:in `create'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 21:55:37 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "abduction"=>{"survivor_id"=>9, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (3.8ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 9], ["abducted", true], ["created_at", "2019-05-05 00:55:37.583714"], ["updated_at", "2019-05-05 00:55:37.583714"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (20.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:22
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 9]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:25
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:26
+  [1m[36mSurvivor Update (1.1ms)[0m  [1m[33mUPDATE "survivors" SET "abducted" = $1, "updated_at" = $2 WHERE "survivors"."id" = $3[0m  [["abducted", true], ["updated_at", "2019-05-05 00:55:37.624640"], ["id", 9]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:26
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:26
+Completed 201 Created in 151ms (Views: 2.0ms | ActiveRecord: 64.3ms)
+
+
+Started GET "/api/v1/abductions/" for ::1 at 2019-05-04 22:00:00 -0300
+Processing by Api::V1::AbductionsController#index as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "abduction"=>{"survivor_id"=>9, "abducted"=>true}}
+  [1m[36mAbduction Load (1.6ms)[0m  [1m[34mSELECT "abductions".* FROM "abductions" ORDER BY "abductions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:6
+Completed 200 OK in 44ms (Views: 36.6ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:01:00 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "survivor"=>{"abducted"=>true}}
+  [1m[36mSurvivor Load (1.8ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 55ms (Views: 46.3ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:02:01 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "survivor"=>{"abducted"=>true}}
+  [1m[36mSurvivor Load (7.7ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 83ms (Views: 69.3ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:02:37 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "survivor"=>{"abducted"=>true}}
+  [1m[36mSurvivor Load (1.3ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 60ms (Views: 53.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:03:18 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "survivor"=>{"abducted"=>true}}
+  [1m[36mSurvivor Load (1.1ms)[0m  [1m[34mSELECT "survivors"."name", "survivors"."gender", "survivors"."latitude", "survivors"."longitude", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 33ms (Views: 26.9ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:03:37 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor_id"=>9, "abducted"=>true, "survivor"=>{"abducted"=>true}}
+  [1m[36mSurvivor Load (1.3ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."gender", "survivors"."latitude", "survivors"."longitude", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 49ms (Views: 36.3ms | ActiveRecord: 17.2ms)
+
+
+Started POST "/api/v1/survivors/" for ::1 at 2019-05-04 22:14:49 -0300
+Processing by Api::V1::SurvivorsController#create as */*
+  Parameters: {"name"=>"Rae", "gender"=>"female", "latitude"=>"40.927955", "longitude"=>"-112.605812600303", "survivor"=>{"name"=>"Rae", "gender"=>"female", "latitude"=>"40.927955", "longitude"=>"-112.605812600303"}}
+Unpermitted parameter: :survivor
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+  [1m[36mSurvivor Create (20.4ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "gender", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rae"], ["gender", "female"], ["latitude", "40.927955"], ["longitude", "-112.605812600303"], ["created_at", "2019-05-05 01:14:50.065658"], ["updated_at", "2019-05-05 01:14:50.065658"]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+  [1m[35m (35.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+Completed 201 Created in 94ms (Views: 1.2ms | ActiveRecord: 73.7ms)
+
+
+Started POST "/api/v1/survivors/" for ::1 at 2019-05-04 22:15:01 -0300
+Processing by Api::V1::SurvivorsController#create as */*
+  Parameters: {"gender"=>"female", "latitude"=>"40.927955", "longitude"=>"-112.605812600303", "survivor"=>{"gender"=>"female", "latitude"=>"40.927955", "longitude"=>"-112.605812600303"}}
+Unpermitted parameter: :survivor
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:20
+Completed 422 Unprocessable Entity in 115ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/v1/survivors/1" for ::1 at 2019-05-04 22:17:01 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/survivors/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/survivors/10" for ::1 at 2019-05-04 22:17:13 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/survivors/10"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PUT "/api/v1/survivors/10" for ::1 at 2019-05-04 22:17:51 -0300
+Processing by Api::V1::SurvivorsController#update as */*
+  Parameters: {"gender"=>"female", "latitude"=>"40.927955", "longitude"=>"-112.605812600303", "id"=>"10", "survivor"=>{"gender"=>"female", "latitude"=>"40.927955", "longitude"=>"-112.605812600303"}}
+  [1m[36mSurvivor Load (1.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:35
+Unpermitted parameters: :id, :survivor
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:37
+  [1m[36mSurvivor Update (1.8ms)[0m  [1m[33mUPDATE "survivors" SET "gender" = $1, "latitude" = $2, "longitude" = $3, "updated_at" = $4 WHERE "survivors"."id" = $5[0m  [["gender", "female"], ["latitude", "40.927955"], ["longitude", "-112.605812600303"], ["updated_at", "2019-05-05 01:17:51.137630"], ["id", 10]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:37
+  [1m[35m (64.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:37
+Completed 200 OK in 127ms (Views: 1.3ms | ActiveRecord: 77.6ms)
+
+
+Started PUT "/api/v1/survivors/10" for ::1 at 2019-05-04 22:18:12 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}
+  
+ActionDispatch::Http::Parameters::ParseError (822: unexpected token at '{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/api/v1/survivors/20" for ::1 at 2019-05-04 22:19:15 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}
+  
+ActionDispatch::Http::Parameters::ParseError (822: unexpected token at '{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/api/v1/survivors/5" for ::1 at 2019-05-04 22:19:43 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}
+  
+ActionDispatch::Http::Parameters::ParseError (822: unexpected token at '{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/api/v1/survivors/5" for ::1 at 2019-05-04 22:21:11 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}
+  
+ActionDispatch::Http::Parameters::ParseError (822: unexpected token at '{
+	"gender": ,
+	"latitude": "40.927955",
+    "longitude": "-112.605812600303"
+	
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/api/v1/survivors/5" for ::1 at 2019-05-04 22:21:19 -0300
+Processing by Api::V1::SurvivorsController#destroy as */*
+  Parameters: {"id"=>"5", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:49
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+  [1m[36mAbduction Load (1.6ms)[0m  [1m[34mSELECT "abductions".* FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 5]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+  [1m[36mSurvivor Destroy (2.1ms)[0m  [1m[31mDELETE FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+Completed 200 OK in 150ms (Views: 2.2ms | ActiveRecord: 41.7ms)
+
+
+Started DELETE "/api/v1/survivors/20" for ::1 at 2019-05-04 22:22:01 -0300
+Processing by Api::V1::SurvivorsController#destroy as */*
+  Parameters: {"id"=>"20", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:49
+Completed 404 Not Found in 19ms (ActiveRecord: 13.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Survivor with 'id'=20):
+  
+app/controllers/api/v1/survivors_controller.rb:49:in `destroy'
+Started DELETE "/api/v1/survivors/14" for ::1 at 2019-05-04 22:22:33 -0300
+Processing by Api::V1::SurvivorsController#destroy as */*
+  Parameters: {"id"=>"14", "survivor"=>{}}
+  [1m[36mSurvivor Load (3.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:49
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+  [1m[36mAbduction Load (2.5ms)[0m  [1m[34mSELECT "abductions".* FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 14]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+  [1m[36mSurvivor Destroy (2.7ms)[0m  [1m[31mDELETE FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+  [1m[35m (55.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:51
+Completed 200 OK in 120ms (Views: 1.6ms | ActiveRecord: 80.2ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 22:25:09 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>10, "abducted"=>true, "abduction"=>{"survivor_id"=>10, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (1.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (2.8ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 10], ["abducted", true], ["created_at", "2019-05-05 01:25:09.891485"], ["updated_at", "2019-05-05 01:25:09.891485"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (53.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.8ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:23
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 10]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:26
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:27
+  [1m[36mSurvivor Update (1.1ms)[0m  [1m[33mUPDATE "survivors" SET "abducted" = $1, "updated_at" = $2 WHERE "survivors"."id" = $3[0m  [["abducted", true], ["updated_at", "2019-05-05 01:25:09.966174"], ["id", 10]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:27
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:27
+Completed 201 Created in 179ms (Views: 0.9ms | ActiveRecord: 106.4ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 22:25:25 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"abducted"=>true, "abduction"=>{"abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+Completed 422 Unprocessable Entity in 13ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started PUT "/api/v1/abductions/1" for ::1 at 2019-05-04 22:26:55 -0300
+Processing by Api::V1::AbductionsController#update as */*
+  Parameters: {"abducted"=>true, "id"=>"1", "abduction"=>{"abducted"=>true}}
+  [1m[36mAbduction Load (1.2ms)[0m  [1m[34mSELECT  "abductions".* FROM "abductions" WHERE "abductions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:40
+Unpermitted parameters: :id, :abduction
+  [1m[35m (5.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:42
+  [1m[36mSurvivor Load (6.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:42
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:42
+Completed 200 OK in 103ms (Views: 1.0ms | ActiveRecord: 31.0ms)
+
+
+Started PUT "/api/v1/abductions/1" for ::1 at 2019-05-04 22:27:06 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"abducted": tru
+	
+}
+  
+ActionDispatch::Http::Parameters::ParseError (822: unexpected token at '{
+	"abducted": tru
+	
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 22:28:31 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+	"survivor_id": 7
+	"abducted": true
+	
+}
+  
+ActionDispatch::Http::Parameters::ParseError (822: unexpected token at '{
+	"survivor_id": 7
+	"abducted": true
+	
+}'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 22:29:17 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>7, "abducted"=>true, "abduction"=>{"survivor_id"=>7, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.3ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 7], ["abducted", true], ["created_at", "2019-05-05 01:29:17.975090"], ["updated_at", "2019-05-05 01:29:17.975090"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (6.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:23
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 7]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:26
+Completed 201 Created in 157ms (Views: 1.0ms | ActiveRecord: 64.5ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 22:29:26 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>7, "abducted"=>true, "abduction"=>{"survivor_id"=>7, "abducted"=>true}}
+Unpermitted parameter: :abduction
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mAbduction Create (1.2ms)[0m  [1m[32mINSERT INTO "abductions" ("survivor_id", "abducted", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["survivor_id", 7], ["abducted", true], ["created_at", "2019-05-05 01:29:26.262631"], ["updated_at", "2019-05-05 01:29:26.262631"]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (70.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 7]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:26
+Completed 201 Created in 91ms (Views: 0.9ms | ActiveRecord: 75.5ms)
+
+
+Started POST "/api/v1/abductions/" for ::1 at 2019-05-04 22:29:54 -0300
+Processing by Api::V1::AbductionsController#create as */*
+  Parameters: {"survivor_id"=>7, "abducted"=>false, "abduction"=>{"survivor_id"=>7, "abducted"=>false}}
+Unpermitted parameter: :abduction
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:20
+Completed 422 Unprocessable Entity in 15ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/api/v1/abductions/1" for ::1 at 2019-05-04 22:31:10 -0300
+Processing by Api::V1::AbductionsController#destroy as */*
+  Parameters: {"id"=>"1", "abduction"=>{}}
+  [1m[36mAbduction Load (13.7ms)[0m  [1m[34mSELECT  "abductions".* FROM "abductions" WHERE "abductions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:52
+  [1m[35m (4.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:54
+  [1m[36mAbduction Destroy (2.0ms)[0m  [1m[31mDELETE FROM "abductions" WHERE "abductions"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/abductions_controller.rb:54
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/abductions_controller.rb:54
+Completed 200 OK in 72ms (Views: 0.5ms | ActiveRecord: 50.4ms)
+
+
+Started DELETE "/api/v1/survivors/2" for ::1 at 2019-05-04 22:35:40 -0300
+Processing by Api::V1::SurvivorsController#destroy as */*
+  Parameters: {"id"=>"2", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:48
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:50
+  [1m[36mAbduction Load (1.8ms)[0m  [1m[34mSELECT "abductions".* FROM "abductions" WHERE "abductions"."survivor_id" = $1[0m  [["survivor_id", 2]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:50
+  [1m[36mAbduction Destroy (1.7ms)[0m  [1m[31mDELETE FROM "abductions" WHERE "abductions"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:50
+  [1m[36mSurvivor Destroy (1.5ms)[0m  [1m[31mDELETE FROM "survivors" WHERE "survivors"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:50
+  [1m[35m (23.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:50
+Completed 200 OK in 103ms (Views: 0.6ms | ActiveRecord: 64.5ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:37:48 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:6
+Completed 500 Internal Server Error in 534ms (ActiveRecord: 7.5ms)
+
+
+  
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+NameError (undefined local variable or method `survivors' for #<Api::V1::SurvivorsController:0x007f56f86a6138>
+Did you mean?  @survivors):
+  
+app/controllers/api/v1/survivors_controller.rb:8:in `index'
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:38:08 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:6
+Completed 500 Internal Server Error in 437ms (ActiveRecord: 5.8ms)
+
+
+  
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+NameError (undefined local variable or method `survivors' for #<Api::V1::SurvivorsController:0x0056206a6b77c8>
+Did you mean?  @survivors):
+  
+app/controllers/api/v1/survivors_controller.rb:8:in `index'
+  [1m[36mCACHE Survivor Load (0.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 22:38:43 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 5.3ms)
+
+
+  
+  [1m[36mCACHE Survivor Load (0.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+NoMethodError (undefined method `fields' for #<Survivor::ActiveRecord_Relation:0x007f56d4545470>):
+  
+app/controllers/api/v1/survivors_controller.rb:8:in `index'
+  [1m[36mCACHE Survivor Load (0.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:00:10 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (3.3ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:6
+Completed 200 OK in 53ms (Views: 36.9ms | ActiveRecord: 26.2ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:04:36 -0300
+  
+SyntaxError (compile error):
+  
+compile error
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:476:in `block in load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:661:in `new_constants_in'
+activesupport (5.2.3) lib/active_support/dependencies.rb:475:in `load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:373:in `block in require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `block in load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+activesupport (5.2.3) lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:13:in `loading'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies.rb:356:in `require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:48:in `block in require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:47:in `require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:60:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.3) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.3) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:04:58 -0300
+  
+SyntaxError (compile error):
+  
+compile error
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:476:in `block in load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:661:in `new_constants_in'
+activesupport (5.2.3) lib/active_support/dependencies.rb:475:in `load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:373:in `block in require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `block in load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+activesupport (5.2.3) lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:13:in `loading'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies.rb:356:in `require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:48:in `block in require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:47:in `require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:60:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.3) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.3) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:05:21 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (1.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."abducted" = $1 LIMIT $2[0m  [["abducted", true], ["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 8.3ms)
+
+
+  
+  [1m[36mCACHE Survivor Load (0.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."abducted" = $1 LIMIT $2[0m  [["abducted", true], ["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+NoMethodError (undefined method `/' for #<Survivor::ActiveRecord_Relation:0x007f56f0599130>):
+  
+app/controllers/api/v1/survivors_controller.rb:7:in `index'
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."abducted" = $1 LIMIT $2[0m  [["abducted", true], ["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:05:55 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:7
+  [1m[35m (122.0ms)[0m  [1m[34mSELECT COUNT(id, name, abducted) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:7
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 133.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedFunction: ERROR:  function count(bigint, character varying, boolean) does not exist
+LINE 1: SELECT COUNT(id, name, abducted) FROM "survivors"
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+: SELECT COUNT(id, name, abducted) FROM "survivors"):
+  
+app/controllers/api/v1/survivors_controller.rb:7:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:06:40 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 12.2ms)
+
+
+  
+RuntimeError (0.0):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:06:56 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 11.8ms)
+
+
+  
+RuntimeError (#<BigDecimal:7f56f8a203b8,'0.0',9(27)>):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:07:54 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 7.9ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:08:07 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 12.1ms)
+
+
+  
+RuntimeError (0.0):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:08:43 -0300
+  
+SyntaxError (compile error):
+  
+compile error
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:476:in `block in load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:661:in `new_constants_in'
+activesupport (5.2.3) lib/active_support/dependencies.rb:475:in `load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:373:in `block in require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `block in load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+activesupport (5.2.3) lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:13:in `loading'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies.rb:356:in `require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:48:in `block in require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:47:in `require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:60:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.3) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.3) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:09:01 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 13.6ms)
+
+
+  
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+NoMethodError (undefined method `>>' for #<Survivor::ActiveRecord_Relation:0x007f56e4124958>):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+  [1m[36mCACHE Survivor Load (0.0ms)[0m  [1m[34mSELECT  "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/gabriely/.rvm/gems/ruby-2.3.1@global/gems/did_you_mean-1.0.0/lib/did_you_mean/core_ext/name_error.rb:10
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:09:13 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[36mSurvivor Load (3.1ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:9
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 14.2ms)
+
+
+  
+TypeError (no implicit conversion of Float into Array):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:09:21 -0300
+  
+SyntaxError (compile error):
+  
+compile error
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:476:in `block in load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:661:in `new_constants_in'
+activesupport (5.2.3) lib/active_support/dependencies.rb:475:in `load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:373:in `block in require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `block in load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+activesupport (5.2.3) lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:13:in `loading'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies.rb:356:in `require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:48:in `block in require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:47:in `require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:60:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.3) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.3) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:12:06 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[36mSurvivor Load (7.1ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:9
+Completed 200 OK in 73ms (Views: 49.6ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:12:53 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:8
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 8.2ms)
+
+
+  
+TypeError (String can't be coerced into Float):
+  
+app/controllers/api/v1/survivors_controller.rb:9:in `+'
+app/controllers/api/v1/survivors_controller.rb:9:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:13:05 -0300
+  
+SyntaxError (compile error):
+  
+compile error
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:54:in `load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:476:in `block in load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:661:in `new_constants_in'
+activesupport (5.2.3) lib/active_support/dependencies.rb:475:in `load_file'
+activesupport (5.2.3) lib/active_support/dependencies.rb:373:in `block in require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `block in load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:14:in `block in loading'
+activesupport (5.2.3) lib/active_support/concurrency/share_lock.rb:151:in `exclusive'
+activesupport (5.2.3) lib/active_support/dependencies/interlock.rb:13:in `loading'
+activesupport (5.2.3) lib/active_support/dependencies.rb:37:in `load_interlock'
+activesupport (5.2.3) lib/active_support/dependencies.rb:356:in `require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:48:in `block in require_or_load'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:47:in `require_or_load'
+activesupport (5.2.3) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:60:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:16:in `allow_bootsnap_retry'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:59:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/dependencies.rb:195:in `const_missing'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:285:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+activesupport (5.2.3) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.2.3) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:101:in `binary_params_for?'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:92:in `set_binary_encoding'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:69:in `path_parameters='
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack-attack (6.0.0) lib/rack/attack.rb:151:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:14:55 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[36mSurvivor Load (1.5ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:15
+Completed 200 OK in 61ms (Views: 33.1ms | ActiveRecord: 31.1ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:18:52 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:15
+Completed 200 OK in 39ms (Views: 24.5ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:19:37 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 8.8ms)
+
+
+  
+NoMethodError (undefined method `count' for nil:NilClass):
+  
+app/controllers/api/v1/survivors_controller.rb:12:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:19:52 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 12.1ms)
+
+
+  
+RuntimeError (10):
+  
+app/controllers/api/v1/survivors_controller.rb:12:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:20:14 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 10.2ms)
+
+
+  
+NoMethodError (undefined method `count' for 0.0:Float):
+  
+app/controllers/api/v1/survivors_controller.rb:13:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:20:26 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 8.2ms)
+
+
+  
+RuntimeError (2):
+  
+app/controllers/api/v1/survivors_controller.rb:13:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:20:48 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 11.3ms)
+
+
+  
+RuntimeError (8):
+  
+app/controllers/api/v1/survivors_controller.rb:13:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:21:10 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 16.0ms)
+
+
+  
+RuntimeError (0.0):
+  
+app/controllers/api/v1/survivors_controller.rb:13:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:21:17 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 12.1ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:13:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:21:34 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 8.6ms)
+
+
+  
+RuntimeError (#<BigDecimal:7f56e452a6d8,'0.0',9(27)>):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:21:45 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 7.8ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:22:05 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 11.3ms)
+
+
+  
+RuntimeError (1000):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:22:18 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 9.0ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:22:28 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 8.9ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:22:45 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 9.4ms)
+
+
+  
+RuntimeError (0.0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:22:57 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 10.4ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:23:08 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 18.0ms)
+
+
+  
+RuntimeError (18):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:23:23 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 10.4ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:23:31 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 17.6ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:23:40 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 9.6ms)
+
+
+  
+RuntimeError (1000):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:24:06 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 17.5ms)
+
+
+  
+RuntimeError (8):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:24:18 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 6.8ms)
+
+
+  
+RuntimeError (10):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:24:30 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 13.6ms)
+
+
+  
+RuntimeError (0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:24:43 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (13.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 26.8ms)
+
+
+  
+RuntimeError (0.0):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:27:08 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 8.2ms)
+
+
+  
+RuntimeError ("80.0%"):
+  
+app/controllers/api/v1/survivors_controller.rb:14:in `index'
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:27:20 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[36mSurvivor Load (1.0ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:15
+Completed 200 OK in 63ms (Views: 37.5ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:28:15 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:15
+Completed 200 OK in 42ms (Views: 23.6ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/api/v1/survivors/" for ::1 at 2019-05-04 23:28:31 -0300
+Processing by Api::V1::SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", true]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:12
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE "survivors"."abducted" = $1[0m  [["abducted", false]]
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:13
+  [1m[36mSurvivor Load (3.1ms)[0m  [1m[34mSELECT "survivors"."id", "survivors"."name", "survivors"."abducted" FROM "survivors" ORDER BY "survivors"."name" ASC[0m
+  ↳ app/controllers/api/v1/survivors_controller.rb:15
+Completed 200 OK in 61ms (Views: 40.2ms | ActiveRecord: 18.5ms)
+
+
